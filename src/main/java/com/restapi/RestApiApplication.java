@@ -1,13 +1,13 @@
-package com.domain.belajarrestapi;
+package com.restapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BelajarRestapiApplication {
+public class RestApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BelajarRestapiApplication.class, args);
+		SpringApplication.run(RestApiApplication.class, args);
 	}
 
 }
