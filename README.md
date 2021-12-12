@@ -13,7 +13,7 @@
 
 #### what did i learn?
 - Core concept/architecture of spring framework
-![spring-boot-architecture2](https://user-images.githubusercontent.com/66185022/145695936-12527cde-9461-401f-9f4e-631aa735dd99.png)
+![Untitled-1](https://user-images.githubusercontent.com/66185022/145696432-312c2193-a4fb-4284-b807-bd8b3699ef84.jpg)
 - API Testing with postman
 - Annotations
   
