@@ -1,4 +1,5 @@
 # Spring Boot
+> Go to pom.xml to see Java and Spring framework version
 ### Tools
 - XAMPP
 - Postman
