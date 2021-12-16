@@ -22,6 +22,13 @@
 - Unit testing
 - Input validation
 
+## Day 2
+### Input Validation and Exception Handling
+![Screenshot (2788)](https://user-images.githubusercontent.com/66185022/146284761-f2286063-0200-47bd-ab6e-b1949612915a.png)
+
+### what's next?
+- Entity relationship
+
 ### Recources
 - https://spring.io/
 - https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/

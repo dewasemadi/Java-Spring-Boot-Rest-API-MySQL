@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "product")
@@ -16,8 +17,10 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
     private Long id;
 
+    @NotEmpty(message = "Name is required")
     private String name;
 
+    @NotEmpty(message = "Description is required")
     @Column(length = 500)
     private String description;
 
@@ -64,5 +67,4 @@ public class Product implements Serializable {
     public void setPrice(double price) {
         this.price = price;
     }
-
 }

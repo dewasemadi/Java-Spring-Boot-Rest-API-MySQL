@@ -1,8 +1,14 @@
 package com.restapi.controllers;
 
+import javax.validation.Valid;
+import com.restapi.dto.ResponseData;
 import com.restapi.models.entity.Product;
 import com.restapi.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,13 +31,30 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Product findOne(@PathVariable("id") Long id) {
-        return productService.findOne(id);
+    public ResponseEntity<ResponseData<Product>> findOne(@PathVariable("id") Long id) {
+        ResponseData<Product> responseData = new ResponseData<>();
+
+        responseData.setStatus(true);
+        responseData.setPayload(productService.findOne(id));
+        return ResponseEntity.ok(responseData);
     }
 
     @PostMapping
-    public Product create(@RequestBody Product product) {
-        return productService.save(product);
+    public ResponseEntity<ResponseData<Product>> create(@Valid @RequestBody Product product, Errors errors) {
+        ResponseData<Product> responseData = new ResponseData<>();
+
+        if (errors.hasErrors()) {
+            for (ObjectError error : errors.getAllErrors()) {
+                responseData.getMessages().add(error.getDefaultMessage());
+            }
+            responseData.setStatus(false);
+            responseData.setPayload(null);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
+        }
+
+        responseData.setStatus(true);
+        responseData.setPayload(productService.save(product));
+        return ResponseEntity.ok(responseData);
     }
 
     @PutMapping
